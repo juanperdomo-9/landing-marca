@@ -14,7 +14,7 @@ export interface DatosContacto {
  * Es una clave pública (está pensada para ir en la página), así que puede quedar acá.
  * Mientras esté vacía, el formulario funciona en modo vista previa y no envía nada.
  */
-export const WEB3FORMS_CLAVE = "6e631d8c-87d1-4c6f-8ff1-5e28afe7e55e";
+export const WEB3FORMS_CLAVE: string = "6e631d8c-87d1-4c6f-8ff1-5e28afe7e55e";
 
 export const FORMULARIO_CONECTADO = WEB3FORMS_CLAVE !== "";
 
