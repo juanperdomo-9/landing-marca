@@ -1,0 +1,136 @@
+.footer {
+  padding-block: 72px 32px;
+  border-top: 1px solid var(--line);
+  background: var(--bg-elev);
+  overflow: hidden;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.footer__marca {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.footer__marca p {
+  max-width: 38ch;
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+}
+
+.footer__titulo {
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.footer__col ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+}
+
+.footer__col li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  min-width: 0;
+}
+
+.footer__col a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.footer__col a:hover,
+.footer__boton:hover {
+  color: var(--accent-text);
+}
+
+.footer__boton {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: inherit;
+  text-decoration: none;
+}
+
+.footer__estado {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.footer__estado.is-live {
+  color: var(--cancha-text);
+}
+
+.footer__dato {
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+
+.footer__gigante {
+  margin-top: 56px;
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 22vw, 18rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.8;
+  color: transparent;
+  background: linear-gradient(to bottom, var(--surface-2), transparent 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.footer__base {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 0.875rem;
+  color: var(--ink-3);
+}
+
+.footer__base a {
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.footer__base a:hover {
+  color: var(--accent-text);
+}
+
+@media (max-width: 860px) {
+  .footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .footer__marca {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

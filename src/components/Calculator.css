@@ -1,0 +1,201 @@
+.calc__tarjeta {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.calc__controles {
+  display: grid;
+  gap: 36px;
+  align-content: start;
+  padding: clamp(22px, 4vw, 44px);
+  border-right: 1px solid var(--line);
+}
+
+.calc__control {
+  display: grid;
+  gap: 12px;
+}
+
+.calc__control-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 16px;
+}
+
+.calc__control-cabecera label {
+  font-weight: 600;
+}
+
+.calc__control-cabecera output {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--accent-text);
+}
+
+.calc__control input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.calc__control input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--accent) 0 var(--lleno), var(--surface-2) var(--lleno) 100%);
+}
+
+.calc__control input[type="range"]::-moz-range-track {
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--accent) 0 var(--lleno), var(--surface-2) var(--lleno) 100%);
+}
+
+.calc__control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 26px;
+  height: 26px;
+  margin-top: -9px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  background: var(--bg-elev);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.15s ease;
+}
+
+.calc__control input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  background: var(--bg-elev);
+  box-shadow: var(--shadow-md);
+}
+
+.calc__control input[type="range"]:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+.calc__extremos {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--ink-3);
+}
+
+.calc__ayuda {
+  font-size: 0.875rem;
+  color: var(--ink-3);
+}
+
+.calc__resultado {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: clamp(22px, 4vw, 44px);
+  background:
+    radial-gradient(100% 80% at 100% 0%, color-mix(in srgb, var(--danger) 9%, transparent), transparent 60%),
+    var(--bg-elev);
+  min-width: 0;
+}
+
+.calc__rotulo {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.calc__monto {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.calc__anio {
+  color: var(--ink-2);
+}
+
+.calc__anio b {
+  color: var(--ink);
+}
+
+.calc__turnos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 14px;
+  min-height: 34px;
+}
+
+.calc__turnos span {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--danger-soft);
+  border: 1.5px solid var(--danger);
+  animation: turno-perdido 0.35s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+}
+
+@keyframes turno-perdido {
+  from {
+    transform: scale(0.3);
+    opacity: 0.2;
+  }
+}
+
+.calc__leyenda {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: var(--ink-3);
+}
+
+.calc__leyenda span {
+  flex: none;
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  background: var(--danger-soft);
+  border: 1.5px solid var(--danger);
+}
+
+.calc__cierre {
+  margin-top: 14px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-2);
+}
+
+.calc__cta {
+  justify-self: start;
+  margin-top: 6px;
+}
+
+@media (max-width: 860px) {
+  .calc__tarjeta {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .calc__controles {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}

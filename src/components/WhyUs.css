@@ -1,0 +1,246 @@
+.bento {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.bento__card {
+  --mx: -300px;
+  --my: -300px;
+  position: relative;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  min-width: 0;
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 0.3s ease;
+}
+
+.bento__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(380px circle at var(--mx) var(--my), color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bento__card:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+
+.bento__card:hover::before {
+  opacity: 1;
+}
+
+.bento__card p {
+  color: var(--ink-2);
+  font-size: 0.9875rem;
+}
+
+.bento__card--ancha {
+  grid-column: span 2;
+}
+
+.bento__card--banner {
+  grid-column: 1 / -1;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+}
+
+.bento__banner-texto {
+  display: grid;
+  gap: 6px;
+}
+
+.bento__icono {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 8px;
+  border-radius: 13px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+.bento__card--banner .bento__icono {
+  margin-bottom: 0;
+}
+
+/* Recorrido de la plata */
+.dinero {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.dinero__nodo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.dinero__nodo--mp {
+  border-style: dashed;
+  color: var(--ink-2);
+}
+
+.dinero__nodo--vos {
+  border-color: var(--cancha);
+  background: var(--cancha-soft);
+  color: var(--cancha-text);
+}
+
+.dinero__via {
+  position: relative;
+  flex: 1;
+  min-width: 28px;
+  height: 2px;
+  background: repeating-linear-gradient(to right, var(--line-strong) 0 5px, transparent 5px 10px);
+}
+
+.dinero__via i {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: var(--cancha);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--cancha) 25%, transparent);
+  animation: moneda 2.4s ease-in-out infinite;
+}
+
+.dinero__via:nth-of-type(4) i {
+  animation-delay: 1.2s;
+}
+
+@keyframes moneda {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 10px);
+    opacity: 0;
+  }
+}
+
+/* Muestras de marcas */
+.marcas {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.marcas span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: var(--p-soft);
+  color: var(--p-text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.marcas i {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: var(--p);
+}
+
+.bento__card:hover .marcas span:nth-child(1) {
+  transform: translateX(4px);
+}
+.bento__card:hover .marcas span:nth-child(2) {
+  transform: translateX(8px);
+  transition-delay: 0.05s;
+}
+.bento__card:hover .marcas span:nth-child(3) {
+  transform: translateX(12px);
+  transition-delay: 0.1s;
+}
+
+@media (max-width: 960px) {
+  .bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bento__card--ancha {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .bento {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .bento__card--banner {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+  .bento__card--banner .btn {
+    justify-self: start;
+  }
+  .dinero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .dinero__via {
+    flex: none;
+    width: 2px;
+    height: 22px;
+    min-width: 0;
+    margin-left: 22px;
+    background: repeating-linear-gradient(to bottom, var(--line-strong) 0 4px, transparent 4px 8px);
+  }
+  .dinero__via i {
+    top: 0;
+    left: 50%;
+    margin: 0 0 0 -5px;
+    animation-name: moneda-v;
+  }
+}
+
+@keyframes moneda-v {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% - 10px);
+    opacity: 0;
+  }
+}

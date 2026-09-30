@@ -1,0 +1,171 @@
+/* Paleta: todos los colores salen de estos tokens (claro y oscuro). */
+
+:root {
+  --bg: #f5f6f9;
+  --bg-elev: #ffffff;
+  --surface: #eceff5;
+  --surface-2: #e2e6ee;
+  --ink: #0c1222;
+  --ink-2: #3a4256;
+  --ink-3: #687084;
+  --line: #d9dee8;
+  --line-strong: #c3c9d6;
+
+  --accent: #2e5bff;
+  --accent-hover: #2149de;
+  --accent-ink: #ffffff;
+  --accent-soft: #e2e8ff;
+  --accent-text: #2449d6;
+
+  --cancha: #13a150;
+  --cancha-soft: #daf3e4;
+  --cancha-text: #0b7a3a;
+  --pelu: #d6336c;
+  --pelu-soft: #fbe2eb;
+  --pelu-text: #b0224f;
+  --resto: #e8730c;
+  --resto-soft: #fdead6;
+  --resto-text: #b35303;
+
+  --ok: #13a150;
+  --warn: #d99100;
+  --warn-soft: #fcf0d2;
+  --danger: #e0454b;
+  --danger-soft: #fce3e3;
+
+  --band-bg: #0c1222;
+  --band-elev: #161e33;
+  --band-line: #273150;
+  --band-ink: #eef1f8;
+  --band-ink-2: #aab3c8;
+  --band-accent: #93a8ff;
+
+  --phone-frame: #0c1222;
+  --phone-screen: #ffffff;
+  --shadow-color: 222 40% 12%;
+
+  --shadow-sm: 0 1px 2px hsl(var(--shadow-color) / 0.06), 0 1px 1px hsl(var(--shadow-color) / 0.04);
+  --shadow-md: 0 2px 4px hsl(var(--shadow-color) / 0.05), 0 8px 24px hsl(var(--shadow-color) / 0.08);
+  --shadow-lg: 0 4px 10px hsl(var(--shadow-color) / 0.06), 0 24px 60px hsl(var(--shadow-color) / 0.16);
+
+  --font-display: "Bricolage Grotesque", "Instrument Sans", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Instrument Sans", ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --gutter: max(16px, 4vw);
+  --maxw: 1200px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #090d16;
+    --bg-elev: #111827;
+    --surface: #161e2f;
+    --surface-2: #1d2639;
+    --ink: #eef1f8;
+    --ink-2: #b6bed0;
+    --ink-3: #848da3;
+    --line: #232c40;
+    --line-strong: #323d56;
+
+    --accent: #6f8cff;
+    --accent-hover: #8aa1ff;
+    --accent-ink: #0a0f1c;
+    --accent-soft: #1a2448;
+    --accent-text: #9bb0ff;
+
+    --cancha: #2fc56f;
+    --cancha-soft: #0f2a1c;
+    --cancha-text: #5fd996;
+    --pelu: #f0679a;
+    --pelu-soft: #34131f;
+    --pelu-text: #f58db3;
+    --resto: #f59a3c;
+    --resto-soft: #33200e;
+    --resto-text: #f8b36b;
+
+    --ok: #2fc56f;
+    --warn: #f0b429;
+    --warn-soft: #33270b;
+    --danger: #f26d71;
+    --danger-soft: #3a1618;
+
+    --band-bg: #111a2c;
+    --band-elev: #19233a;
+    --band-line: #2a3656;
+    --band-ink: #eef1f8;
+    --band-ink-2: #aab3c8;
+    --band-accent: #93a8ff;
+
+    --phone-frame: #252f45;
+    --phone-screen: #0f1522;
+    --shadow-color: 225 60% 2%;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #090d16;
+  --bg-elev: #111827;
+  --surface: #161e2f;
+  --surface-2: #1d2639;
+  --ink: #eef1f8;
+  --ink-2: #b6bed0;
+  --ink-3: #848da3;
+  --line: #232c40;
+  --line-strong: #323d56;
+
+  --accent: #6f8cff;
+  --accent-hover: #8aa1ff;
+  --accent-ink: #0a0f1c;
+  --accent-soft: #1a2448;
+  --accent-text: #9bb0ff;
+
+  --cancha: #2fc56f;
+  --cancha-soft: #0f2a1c;
+  --cancha-text: #5fd996;
+  --pelu: #f0679a;
+  --pelu-soft: #34131f;
+  --pelu-text: #f58db3;
+  --resto: #f59a3c;
+  --resto-soft: #33200e;
+  --resto-text: #f8b36b;
+
+  --ok: #2fc56f;
+  --warn: #f0b429;
+  --warn-soft: #33270b;
+  --danger: #f26d71;
+  --danger-soft: #3a1618;
+
+  --band-bg: #111a2c;
+  --band-elev: #19233a;
+  --band-line: #2a3656;
+  --band-ink: #eef1f8;
+  --band-ink-2: #aab3c8;
+  --band-accent: #93a8ff;
+
+  --phone-frame: #252f45;
+  --phone-screen: #0f1522;
+  --shadow-color: 225 60% 2%;
+  color-scheme: dark;
+}
+
+/* Color de cada producto, para usar con data-producto="..." */
+[data-producto="cancha"] {
+  --p: var(--cancha);
+  --p-soft: var(--cancha-soft);
+  --p-text: var(--cancha-text);
+}
+[data-producto="pelu"] {
+  --p: var(--pelu);
+  --p-soft: var(--pelu-soft);
+  --p-text: var(--pelu-text);
+}
+[data-producto="resto"] {
+  --p: var(--resto);
+  --p-soft: var(--resto-soft);
+  --p-text: var(--resto-text);
+}

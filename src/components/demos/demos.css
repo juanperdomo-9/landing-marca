@@ -1,0 +1,684 @@
+/* Pantallas de ejemplo dentro del celular */
+
+.demo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  padding: 4px 14px 22px;
+  overflow: hidden;
+}
+
+.demo__negocio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.demo__negocio > span:last-child {
+  display: grid;
+  line-height: 1.25;
+  min-width: 0;
+}
+
+.demo__negocio strong {
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+
+.demo__negocio small {
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.demo__avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  background: var(--p);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.demo__chips {
+  display: flex;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.demo__chip {
+  flex: none;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.demo__chip.is-on {
+  background: var(--p);
+  border-color: var(--p);
+  color: #fff;
+}
+
+.demo__dias {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.demo__dias span {
+  padding: 6px 0;
+  border-radius: 10px;
+  background: var(--surface);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.demo__dias .is-on {
+  background: var(--ink);
+  color: var(--phone-screen);
+}
+
+.demo__titulo {
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.demo__turnos {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.demo__turno {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.demo__hora {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.demo__quedan {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--p-text);
+}
+
+.demo__precio {
+  font-size: 11.5px;
+  color: var(--ink-2);
+}
+
+.demo__turno.is-lleno {
+  opacity: 0.5;
+}
+
+.demo__turno.is-lleno .demo__quedan {
+  color: var(--ink-3);
+}
+
+.demo__turno.is-elegido {
+  border-color: var(--p);
+  background: var(--p-soft);
+  box-shadow: inset 0 0 0 1px var(--p);
+  transform: scale(1.02);
+}
+
+.demo__tap {
+  position: absolute;
+  right: 26%;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--p) 45%, transparent);
+  animation: demo-tap 0.9s ease-out both;
+  pointer-events: none;
+}
+
+@keyframes demo-tap {
+  0% {
+    transform: scale(0.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.demo__pie {
+  margin-top: auto;
+  margin-bottom: 6px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--p-soft);
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+.demo__pie .mono {
+  font-weight: 700;
+  color: var(--p-text);
+}
+
+/* Hoja que sube desde abajo */
+.demo__sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: grid;
+  gap: 8px;
+  padding: 10px 16px 26px;
+  border-radius: 22px 22px 0 0;
+  background: var(--bg-elev);
+  box-shadow: 0 -12px 32px hsl(var(--shadow-color) / 0.18);
+  transform: translateY(105%);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.demo__sheet.is-abierto {
+  transform: translateY(0);
+}
+
+.demo__agarre {
+  justify-self: center;
+  width: 36px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--line-strong);
+}
+
+.demo__sheet-titulo {
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+.demo__sheet-sub {
+  margin-top: -6px;
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+
+.demo__cuenta {
+  display: grid;
+  gap: 5px;
+  margin: 2px 0 4px;
+}
+
+.demo__cuenta div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.demo__cuenta dt {
+  color: var(--ink-2);
+}
+
+.demo__cuenta dd {
+  margin: 0;
+}
+
+.demo__cuenta div:nth-child(2) dd,
+.demo__total {
+  font-weight: 700;
+}
+
+.demo__total {
+  padding-top: 6px;
+  border-top: 1px dashed var(--line-strong);
+}
+
+.demo__pagar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--p);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.demo__pagar.is-cargando {
+  opacity: 0.85;
+}
+
+.demo__spin {
+  animation: demo-spin 0.9s linear infinite;
+}
+
+@keyframes demo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.demo__nota {
+  justify-self: center;
+  font-size: 10.5px;
+  color: var(--ink-3);
+}
+
+/* Pantalla final */
+.demo__exito {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px 22px 40px;
+  background: var(--phone-screen);
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.97);
+  pointer-events: none;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.demo__exito.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.demo__check {
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  margin-bottom: 6px;
+  border-radius: 50%;
+  background: var(--p);
+  color: #fff;
+  box-shadow: 0 0 0 10px var(--p-soft);
+  transform: scale(0.4);
+  transition: transform 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) 0.1s;
+}
+
+.demo__exito.is-visible .demo__check {
+  transform: scale(1);
+}
+
+.demo__exito strong {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.demo__exito-det {
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.demo__recibo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px dashed var(--line-strong);
+  font-size: 12.5px;
+}
+
+.demo__recibo span:last-child {
+  font-weight: 700;
+}
+
+.demo__mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+
+/* Chat */
+.demo--chat {
+  gap: 0;
+  padding: 0;
+}
+
+.demo__negocio--chat {
+  padding: 4px 14px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.demo__online {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.demo__online::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ok);
+}
+
+.demo__mensajes {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.demo__msg {
+  max-width: 86%;
+  padding: 8px 11px;
+  border-radius: 16px;
+  font-size: 12.5px;
+  line-height: 1.42;
+  animation: demo-msg 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.demo__msg--bot {
+  align-self: flex-start;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-bottom-left-radius: 6px;
+}
+
+.demo__msg--yo {
+  align-self: flex-end;
+  background: var(--p);
+  color: #fff;
+  border-bottom-right-radius: 6px;
+}
+
+.demo__msg--sistema {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 96%;
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--ok) 16%, var(--bg-elev));
+  color: var(--ink);
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+.demo__msg--sistema svg {
+  flex: none;
+  color: var(--ok);
+}
+
+@keyframes demo-msg {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+}
+
+.demo__opciones {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.demo__opciones span {
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--p);
+  color: var(--p-text);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.demo__opciones .is-on {
+  background: var(--p);
+  color: #fff;
+}
+
+.demo__link-pago {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 8px 8px 8px 11px;
+  border-radius: 12px;
+  background: var(--p-soft);
+}
+
+.demo__link-pago small {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ink-2);
+}
+
+.demo__link-pago b {
+  font-size: 14px;
+}
+
+.demo__link-btn {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--p);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.demo__escribiendo {
+  display: flex;
+  gap: 4px;
+  padding: 11px 13px;
+}
+
+.demo__escribiendo i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink-3);
+  animation: demo-dots 1s ease-in-out infinite;
+}
+
+.demo__escribiendo i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.demo__escribiendo i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes demo-dots {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+.demo__input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 38px;
+  margin: 8px 12px 24px;
+  padding: 0 5px 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+
+.demo__enviar {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--p);
+  color: #fff;
+}
+
+/* Carta del restaurante */
+.demo__carta {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.demo__carta li {
+  display: grid;
+  grid-template-columns: 44px 1fr 30px;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  transition: border-color 0.25s ease;
+}
+
+.demo__carta li.is-sumado {
+  border-color: color-mix(in srgb, var(--p) 55%, var(--line));
+}
+
+.demo__foto {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 32% 30%, color-mix(in srgb, var(--p) 55%, #fff) 0 22%, transparent 23%),
+    radial-gradient(circle at 68% 64%, color-mix(in srgb, var(--p) 80%, #000) 0 18%, transparent 19%),
+    var(--p-soft);
+}
+
+.demo__plato {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.demo__plato span:first-child {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.demo__plato .mono {
+  font-size: 11.5px;
+  color: var(--ink-2);
+}
+
+.demo__mas {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid var(--p);
+  color: var(--p-text);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.demo__carta li.is-sumado .demo__mas {
+  background: var(--p);
+  color: #fff;
+  animation: demo-pop 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+@keyframes demo-pop {
+  from {
+    transform: scale(0.6);
+  }
+}
+
+.demo__carrito {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 24px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 14px;
+  background: var(--ink);
+  color: var(--phone-screen);
+  font-size: 13px;
+  font-weight: 600;
+  transform: translateY(160%);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.demo__carrito.is-visible {
+  transform: translateY(0);
+}
+
+.demo__carrito-cant {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  animation: demo-pop 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
