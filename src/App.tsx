@@ -10,8 +10,11 @@ import { Faq } from "./components/Faq";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { DemoHayCanchaProvider } from "./components/hay-cancha/contexto";
+import { useReveal } from "./hooks/useReveal";
 
 export default function App() {
+  useReveal();
+
   return (
     <DemoHayCanchaProvider>
       <a className="skip-link" href="#contenido">

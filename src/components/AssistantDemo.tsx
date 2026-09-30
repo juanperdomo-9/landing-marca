@@ -8,6 +8,7 @@ import {
   LuSparkles,
 } from "react-icons/lu";
 import { useReducedMotion } from "../hooks/useReducedMotion";
+import { retraso } from "../hooks/useReveal";
 import "./AssistantDemo.css";
 
 type Clave = "precio" | "lugar" | "estacionamiento" | "cancelar" | "reservar" | "nose";
@@ -148,7 +149,7 @@ export function AssistantDemo() {
   return (
     <section id="asistente" className="section asistente">
       <div className="container asistente__inner">
-        <div className="asistente__copy">
+        <div className="asistente__copy" data-reveal="left">
           <p className="eyebrow">
             <b>03</b> Asistente con IA
           </p>
@@ -186,7 +187,7 @@ export function AssistantDemo() {
           </ul>
         </div>
 
-        <div className="chat">
+        <div className="chat" data-reveal="tilt-right" style={retraso(150)}>
           <div className="chat__cabecera">
             <span className="chat__avatar">EP</span>
             <span className="chat__quien">

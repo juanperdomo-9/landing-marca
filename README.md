@@ -26,6 +26,7 @@ npm run preview    # sirve dist/ para revisarla antes de publicar
 | Oferta del primer mes gratis | `src/config.ts` (`OFERTA`) |
 | Colores | `src/styles/tokens.css` |
 | Textos de cada producto | `src/components/Products.tsx` |
+| Notas del cuaderno de la portada y su agenda (una por rubro) | `src/components/Cuaderno.tsx` |
 | Preguntas frecuentes | `src/components/Faq.tsx` |
 | Respuestas del chat de ejemplo | `src/components/AssistantDemo.tsx` |
 

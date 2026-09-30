@@ -42,6 +42,12 @@
 
   --phone-frame: #0c1222;
   --phone-screen: #ffffff;
+
+  /* Cuaderno del hero: papel y birome, igual en los dos modos */
+  --paper: #fffbea;
+  --paper-line: #c9d6ec;
+  --pen: #1d3a8a;
+  --pen-red: #c62828;
   --shadow-color: 222 40% 12%;
 
   --shadow-sm: 0 1px 2px hsl(var(--shadow-color) / 0.06), 0 1px 1px hsl(var(--shadow-color) / 0.04);
@@ -51,6 +57,7 @@
   --font-display: "Bricolage Grotesque", "Instrument Sans", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
   --font-body: "Instrument Sans", ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-mano: "Caveat", "Segoe Print", "Bradley Hand", cursive;
 
   --radius-sm: 8px;
   --radius: 14px;
@@ -102,6 +109,8 @@
 
     --phone-frame: #252f45;
     --phone-screen: #0f1522;
+    --paper: #f3ecd2;
+    --paper-line: #b5c3dc;
     --shadow-color: 225 60% 2%;
     color-scheme: dark;
   }
@@ -149,6 +158,8 @@
 
   --phone-frame: #252f45;
   --phone-screen: #0f1522;
+  --paper: #f3ecd2;
+  --paper-line: #b5c3dc;
   --shadow-color: 225 60% 2%;
   color-scheme: dark;
 }

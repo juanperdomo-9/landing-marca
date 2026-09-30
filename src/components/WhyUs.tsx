@@ -10,9 +10,18 @@ import {
   LuUsers,
   LuWallet,
 } from "react-icons/lu";
+import { retraso } from "../hooks/useReveal";
 import "./WhyUs.css";
 
-function Tarjeta({ className = "", children }: { className?: string; children: ReactNode }) {
+interface TarjetaProps {
+  className?: string;
+  /** Desde dónde aparece (ver styles/reveal.css). */
+  aparece?: string;
+  demora?: number;
+  children: ReactNode;
+}
+
+function Tarjeta({ className = "", aparece = "up", demora = 0, children }: TarjetaProps) {
   const ref = useRef<HTMLElement>(null);
   const mover = (e: PointerEvent<HTMLElement>) => {
     const el = ref.current;
@@ -22,7 +31,13 @@ function Tarjeta({ className = "", children }: { className?: string; children: R
     el.style.setProperty("--my", `${e.clientY - r.top}px`);
   };
   return (
-    <article ref={ref} className={`bento__card ${className}`} onPointerMove={mover}>
+    <article
+      ref={ref}
+      className={`bento__card ${className}`}
+      onPointerMove={mover}
+      data-reveal={aparece}
+      style={retraso(demora)}
+    >
       {children}
     </article>
   );
@@ -33,15 +48,17 @@ export function WhyUs() {
     <section id="por-que" className="section porque">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">
+          <p className="eyebrow" data-reveal="left">
             <b>05</b> Por qué nosotros
           </p>
-          <h2>Pensado para cómo trabaja un negocio de acá</h2>
-          <p>Mercado Pago, el celular en la mano y clientes que escriben a cualquier hora. Lo armamos para eso.</p>
+          <h2 data-reveal="up" style={retraso(80)}>
+            Pensado para cómo trabaja un negocio de acá
+          </h2>
+          <p data-reveal="up" style={retraso(160)}>Mercado Pago, el celular en la mano y clientes que escriben a cualquier hora. Lo armamos para eso.</p>
         </div>
 
         <div className="bento">
-          <Tarjeta className="bento__card--ancha">
+          <Tarjeta className="bento__card--ancha" aparece="left">
             <span className="bento__icono">
               <LuWallet size={20} aria-hidden="true" />
             </span>
@@ -66,7 +83,7 @@ export function WhyUs() {
             </div>
           </Tarjeta>
 
-          <Tarjeta>
+          <Tarjeta aparece="right" demora={120}>
             <span className="bento__icono">
               <LuBadgeCheck size={20} aria-hidden="true" />
             </span>
@@ -74,7 +91,7 @@ export function WhyUs() {
             <p>Nadie revisa capturas: el turno se confirma cuando Mercado Pago aprueba el pago.</p>
           </Tarjeta>
 
-          <Tarjeta>
+          <Tarjeta aparece="up">
             <span className="bento__icono">
               <LuSmartphone size={20} aria-hidden="true" />
             </span>
@@ -82,7 +99,7 @@ export function WhyUs() {
             <p>La agenda está pensada para mirarla en la cancha o entre cliente y cliente, con una mano.</p>
           </Tarjeta>
 
-          <Tarjeta>
+          <Tarjeta aparece="zoom" demora={120}>
             <span className="bento__icono">
               <LuPalette size={20} aria-hidden="true" />
             </span>
@@ -104,7 +121,7 @@ export function WhyUs() {
             </div>
           </Tarjeta>
 
-          <Tarjeta>
+          <Tarjeta aparece="up" demora={240}>
             <span className="bento__icono">
               <LuPhone size={20} aria-hidden="true" />
             </span>
@@ -112,7 +129,7 @@ export function WhyUs() {
             <p>Cargás la reserva en segundos y la página deja de ofrecer ese horario. Nunca se pisan.</p>
           </Tarjeta>
 
-          <Tarjeta className="bento__card--banner">
+          <Tarjeta className="bento__card--banner" aparece="zoom">
             <span className="bento__icono">
               <LuUsers size={20} aria-hidden="true" />
             </span>

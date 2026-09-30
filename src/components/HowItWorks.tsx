@@ -11,6 +11,7 @@ import {
 } from "react-icons/lu";
 import { useInView } from "../hooks/useInView";
 import { useReducedMotion } from "../hooks/useReducedMotion";
+import { retraso } from "../hooks/useReveal";
 import { useScrollProgress } from "../hooks/useScrollProgress";
 import "./HowItWorks.css";
 
@@ -60,11 +61,13 @@ export function HowItWorks() {
     <section id="como-funciona" className="section como">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">
+          <p className="eyebrow" data-reveal="left">
             <b>02</b> Cómo funciona
           </p>
-          <h2>De cero a recibir reservas, sin configurar nada</h2>
-          <p>Nosotros hacemos el alta y la carga de datos. Vos vinculás tu cuenta y compartís el link.</p>
+          <h2 data-reveal="up" style={retraso(80)}>
+            De cero a recibir reservas, sin configurar nada
+          </h2>
+          <p data-reveal="up" style={retraso(160)}>Nosotros hacemos el alta y la carga de datos. Vos vinculás tu cuenta y compartís el link.</p>
         </div>
 
         <ol className="como__pasos" ref={pasosRef}>
@@ -77,7 +80,8 @@ export function HowItWorks() {
               <li
                 key={p.titulo}
                 className={`como__paso ${alcanzado ? "is-alcanzado" : ""}`}
-                style={{ "--relleno": relleno } as CSSProperties}
+                data-reveal="up"
+                style={{ "--relleno": relleno, "--reveal-delay": `${i * 140}ms` } as CSSProperties}
               >
                 <span className="como__numero mono" aria-hidden="true">
                   {i + 1}
@@ -94,7 +98,7 @@ export function HowItWorks() {
           })}
         </ol>
 
-        <div className="flujo" ref={flujoRef}>
+        <div className="flujo" ref={flujoRef} data-reveal="zoom">
           <div className="flujo__cabecera">
             <h3>Y cuando alguien reserva…</h3>
             <p className="flujo__nota">
@@ -106,7 +110,12 @@ export function HowItWorks() {
           </div>
           <ol className="flujo__nodos" style={{ "--nodo": nodo } as CSSProperties}>
             {FLUJO.map((f, i) => (
-              <li key={f.titulo} className={`flujo__nodo ${i === nodo && !reduce ? "is-activo" : ""} ${i < nodo ? "is-hecho" : ""}`}>
+              <li
+                key={f.titulo}
+                className={`flujo__nodo ${i === nodo && !reduce ? "is-activo" : ""} ${i < nodo ? "is-hecho" : ""}`}
+                data-reveal="left"
+                style={retraso(250 + i * 120)}
+              >
                 <span className="flujo__icono" aria-hidden="true">
                   <f.Icono size={20} />
                 </span>

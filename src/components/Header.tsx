@@ -35,7 +35,7 @@ export function Header() {
   const cerrar = () => setAbierto(false);
 
   return (
-    <header className={`header ${conScroll || abierto ? "header--solido" : ""}`}>
+    <header className={`header ${conScroll || abierto ? "header--solido" : ""}`} data-reveal="down">
       <div className="container header__inner">
         <a href="#top" className="header__marca" aria-label="Ir al inicio" onClick={cerrar}>
           <Logo />

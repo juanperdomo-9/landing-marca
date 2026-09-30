@@ -1,6 +1,7 @@
 import { useId, useState } from "react";
 import { LuPlus } from "react-icons/lu";
 import { OFERTA } from "../config";
+import { retraso } from "../hooks/useReveal";
 import "./Faq.css";
 
 const PREGUNTAS = [
@@ -41,7 +42,7 @@ export function Faq() {
   return (
     <section id="preguntas" className="section faq">
       <div className="container faq__inner">
-        <div className="faq__head">
+        <div className="faq__head" data-reveal="left">
           <p className="eyebrow">
             <b>06</b> Preguntas
           </p>
@@ -57,7 +58,12 @@ export function Faq() {
             const idBoton = `${base}-b${i}`;
             const idPanel = `${base}-p${i}`;
             return (
-              <div key={item.p} className={`faq__item ${on ? "is-abierta" : ""}`}>
+              <div
+                key={item.p}
+                className={`faq__item ${on ? "is-abierta" : ""}`}
+                data-reveal="right"
+                style={retraso(i * 80)}
+              >
                 <h3>
                   <button
                     id={idBoton}

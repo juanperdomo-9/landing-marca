@@ -1,6 +1,7 @@
 import { useRef, useState, type ComponentType, type KeyboardEvent } from "react";
 import { LuArrowRight, LuCheck } from "react-icons/lu";
 import { ETIQUETA_ESTADO, PRODUCTOS, type ProductoId } from "../config";
+import { retraso } from "../hooks/useReveal";
 import { IconoProducto } from "./icons";
 import { BotonHayCancha } from "./hay-cancha/contexto";
 import { AgendaCancha } from "./visuals/AgendaCancha";
@@ -81,11 +82,13 @@ export function Products() {
     <section id="productos" className="section productos">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">
+          <p className="eyebrow" data-reveal="left">
             <b>01</b> Productos
           </p>
-          <h2>Una marca, un producto para cada rubro</h2>
-          <p>
+          <h2 data-reveal="up" style={retraso(80)}>
+            Una marca, un producto para cada rubro
+          </h2>
+          <p data-reveal="up" style={retraso(160)}>
             El mismo motor de reservas, cobros y atención automática, hecho a medida de cada negocio. Arrancamos por
             las canchas y vamos sumando rubros.
           </p>
@@ -107,6 +110,8 @@ export function Products() {
                 aria-controls={`panel-${p.id}`}
                 tabIndex={on ? 0 : -1}
                 data-producto={p.id}
+                data-reveal="up"
+                style={retraso(i * 100)}
                 className={`productos__tab ${on ? "is-activo" : ""}`}
                 onClick={() => setActivo(p.id)}
               >
@@ -133,7 +138,7 @@ export function Products() {
           className="productos__panel"
           data-producto={activo}
         >
-          <div className="productos__info">
+          <div className="productos__info" data-reveal="left">
             <p className="productos__nombre">
               <IconoProducto id={activo} size={18} />
               {producto.nombre}
@@ -163,7 +168,7 @@ export function Products() {
               )}
             </div>
           </div>
-          <div className="productos__visual">
+          <div className="productos__visual" data-reveal="right" style={retraso(120)}>
             <detalle.Visual />
           </div>
         </div>

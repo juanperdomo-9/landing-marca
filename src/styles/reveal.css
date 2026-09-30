@@ -1,0 +1,46 @@
+/* Apariciones al hacer scroll. Solo se activan con la clase .reveal-on (la pone useReveal). */
+
+[data-reveal="up"] {
+  --reveal-from: translateY(44px);
+}
+[data-reveal="down"] {
+  --reveal-from: translateY(-28px);
+}
+[data-reveal="left"] {
+  --reveal-from: translateX(-64px);
+}
+[data-reveal="right"] {
+  --reveal-from: translateX(64px);
+}
+[data-reveal="zoom"] {
+  --reveal-from: scale(0.9);
+}
+[data-reveal="tilt-left"] {
+  --reveal-from: translateX(-48px) rotate(-4deg);
+}
+[data-reveal="tilt-right"] {
+  --reveal-from: translateX(48px) rotate(4deg);
+}
+[data-reveal="rise"] {
+  --reveal-from: translateY(55%);
+}
+
+.reveal-on [data-reveal]:not([data-revealed]) {
+  opacity: 0;
+}
+
+/* Con fill "backwards" la animación no pisa los hover ni las transiciones propias del elemento cuando termina. */
+.reveal-on [data-reveal][data-revealed] {
+  animation: revelar 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) var(--reveal-delay, 0ms) backwards;
+}
+
+.reveal-on [data-reveal="rise"][data-revealed] {
+  animation-duration: 1.3s;
+}
+
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: var(--reveal-from, translateY(44px));
+  }
+}

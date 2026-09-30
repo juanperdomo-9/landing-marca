@@ -2,6 +2,7 @@ import { useId, useState, type CSSProperties } from "react";
 import { LuArrowRight } from "react-icons/lu";
 import { OFERTA } from "../config";
 import { useAnimatedNumber } from "../hooks/useAnimatedNumber";
+import { retraso } from "../hooks/useReveal";
 import { pesos } from "../lib/formato";
 import "./Calculator.css";
 
@@ -63,18 +64,20 @@ export function Calculator() {
     <section id="calculadora" className="section calc">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">
+          <p className="eyebrow" data-reveal="left">
             <b>04</b> Hacé la cuenta
           </p>
-          <h2>¿Cuánta plata se te va en turnos vacíos?</h2>
-          <p>
+          <h2 data-reveal="up" style={retraso(80)}>
+            ¿Cuánta plata se te va en turnos vacíos?
+          </h2>
+          <p data-reveal="up" style={retraso(160)}>
             Cancelaciones de último momento, gente que no viene, horarios que nadie reservó porque no viste el mensaje
             a tiempo. Poné tus números.
           </p>
         </div>
 
-        <div className="calc__tarjeta">
-          <div className="calc__controles">
+        <div className="calc__tarjeta" data-reveal="up">
+          <div className="calc__controles" data-reveal="left" style={retraso(200)}>
             <Slider
               etiqueta="Precio del turno"
               ayuda="Lo que cobrás por un turno o servicio."
@@ -97,7 +100,7 @@ export function Calculator() {
             />
           </div>
 
-          <div className="calc__resultado" aria-live="polite">
+          <div className="calc__resultado" aria-live="polite" data-reveal="right" style={retraso(320)}>
             <p className="calc__rotulo">Por mes se te van, más o menos</p>
             <p className="calc__monto mono">{pesos(Math.round(mesAnimado / 100) * 100)}</p>
             <p className="calc__anio">

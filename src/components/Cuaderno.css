@@ -1,0 +1,194 @@
+/* Antes y después del hero: cuaderno con tachones → agenda prolija */
+
+.tirar__par {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  max-width: 640px;
+}
+
+.cuaderno {
+  position: relative;
+  min-width: 0;
+  padding: 14px 16px 16px 32px;
+  border-radius: 4px 10px 10px 4px;
+  background:
+    linear-gradient(to right, transparent 21px, color-mix(in srgb, var(--pen-red) 45%, transparent) 21px 22px, transparent 22px),
+    repeating-linear-gradient(to bottom, transparent 0 26px, var(--paper-line) 26px 27px),
+    var(--paper);
+  color: var(--pen);
+  font-family: var(--font-mano);
+  font-size: 1.25rem;
+  line-height: 27px;
+  transform: rotate(-3deg);
+  box-shadow: 0 12px 28px -12px rgb(0 0 0 / 0.4);
+  animation: cuaderno-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
+.cuaderno p {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cuaderno__tachada::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: 30%;
+  top: 55%;
+  height: 2px;
+  background: var(--pen);
+  transform: rotate(-2deg);
+  transform-origin: left;
+  animation: tachar 0.35s ease backwards;
+  animation-delay: calc(0.7s + var(--i) * 180ms);
+}
+
+.cuaderno__alerta {
+  color: var(--pen-red);
+  font-weight: 700;
+}
+
+.tirar__flecha {
+  color: var(--ink-3);
+  animation: flecha-in 0.4s ease 1.5s backwards;
+}
+
+.agenda-limpia {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  box-shadow: var(--shadow-md);
+  animation: limpia-in 0.7s cubic-bezier(0.2, 0.9, 0.2, 1.1) 1.7s backwards;
+}
+
+.agenda-limpia__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-inline: 2px;
+}
+
+.agenda-limpia__cabecera small {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.agenda-limpia__cabecera span {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--p-text);
+}
+
+.agenda-limpia__turno {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 9px;
+  border-radius: 9px;
+  background: var(--p-soft);
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  animation: turno-in 0.4s ease backwards;
+  animation-delay: calc(2.05s + var(--i) * 140ms);
+}
+
+.agenda-limpia__turno span:first-child {
+  color: var(--ink-3);
+}
+
+.agenda-limpia__turno span:nth-child(2) {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agenda-limpia__turno span:last-child {
+  color: var(--p-text);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Al cambiar de rubro: el cuaderno sale volando y la agenda se corre */
+.tirar.is-saliendo .cuaderno {
+  animation: cuaderno-out 0.42s cubic-bezier(0.5, 0, 0.8, 0.4) forwards;
+}
+
+.tirar.is-saliendo .tirar__flecha,
+.tirar.is-saliendo .agenda-limpia {
+  animation: limpia-out 0.3s ease forwards;
+}
+
+@keyframes cuaderno-in {
+  from {
+    opacity: 0;
+    transform: translateX(-60px) rotate(-14deg);
+  }
+}
+
+@keyframes cuaderno-out {
+  to {
+    opacity: 0;
+    transform: translate(-50px, 70px) rotate(-22deg) scale(0.9);
+  }
+}
+
+@keyframes tachar {
+  from {
+    transform: rotate(-2deg) scaleX(0);
+  }
+}
+
+@keyframes flecha-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+}
+
+@keyframes limpia-in {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+@keyframes limpia-out {
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+@keyframes turno-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+
+@media (max-width: 560px) {
+  .tirar__par {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .tirar__flecha {
+    justify-self: center;
+    rotate: 90deg;
+  }
+}

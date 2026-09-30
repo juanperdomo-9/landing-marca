@@ -1,6 +1,7 @@
 import { ETIQUETA_ESTADO, MARCA, PRODUCTOS } from "../config";
 import { Logo } from "./Logo";
 import { BotonHayCancha } from "./hay-cancha/contexto";
+import { retraso } from "../hooks/useReveal";
 import "./Footer.css";
 
 export function Footer() {
@@ -8,12 +9,12 @@ export function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer__grid">
-          <div className="footer__marca">
+          <div className="footer__marca" data-reveal="up">
             <Logo />
             <p>{MARCA.bajada}. Reservas, cobros y atención automática para que vos te ocupes de tu negocio.</p>
           </div>
 
-          <nav className="footer__col" aria-label="Productos">
+          <nav className="footer__col" aria-label="Productos" data-reveal="up" style={retraso(100)}>
             <p className="footer__titulo">Productos</p>
             <ul>
               {PRODUCTOS.map((p) => (
@@ -37,7 +38,7 @@ export function Footer() {
             </ul>
           </nav>
 
-          <nav className="footer__col" aria-label="La marca">
+          <nav className="footer__col" aria-label="La marca" data-reveal="up" style={retraso(200)}>
             <p className="footer__titulo">La marca</p>
             <ul>
               <li>
@@ -55,7 +56,7 @@ export function Footer() {
             </ul>
           </nav>
 
-          <div className="footer__col">
+          <div className="footer__col" data-reveal="up" style={retraso(300)}>
             <p className="footer__titulo">Contacto</p>
             <ul>
               <li className="footer__dato">{MARCA.email}</li>
@@ -67,7 +68,7 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="footer__gigante" aria-hidden="true">
+        <p className="footer__gigante" aria-hidden="true" data-reveal="rise">
           {MARCA.nombre}
         </p>
 

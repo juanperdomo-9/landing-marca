@@ -2,6 +2,7 @@ import { useRef, useState, type FormEvent } from "react";
 import { LuArrowRight, LuAtSign, LuCheck, LuCopy, LuGift, LuLoaderCircle, LuMail, LuRotateCcw } from "react-icons/lu";
 import { MARCA, OFERTA } from "../config";
 import { enviarContacto, FORMULARIO_CONECTADO, type DatosContacto, type Rubro } from "../lib/contacto";
+import { retraso } from "../hooks/useReveal";
 import "./Contact.css";
 
 const RUBROS: { id: Rubro; texto: string }[] = [
@@ -97,7 +98,7 @@ export function Contact() {
   return (
     <section id="contacto" className="section contacto">
       <div className="container contacto__inner">
-        <div className="contacto__copy">
+        <div className="contacto__copy" data-reveal="left">
           <p className="eyebrow">
             <b>07</b> Hablemos
           </p>
@@ -128,7 +129,7 @@ export function Contact() {
           </div>
         </div>
 
-        <div className="contacto__form-caja">
+        <div className="contacto__form-caja" data-reveal="tilt-right" style={retraso(150)}>
           <p className="oferta oferta--caja">
             <span className="oferta__icono" aria-hidden="true">
               <LuGift size={16} />
