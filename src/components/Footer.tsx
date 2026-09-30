@@ -81,7 +81,15 @@ export function Footer() {
           <span>
             © {MARCA.anio} {MARCA.nombre}. Hecho en Argentina.
           </span>
-          <a href="#top">Volver arriba ↑</a>
+          <span className="footer__links">
+            <span>
+              Desarrollo web por{" "}
+              <a href="https://jpweb.com.ar" target="_blank" rel="noopener noreferrer">
+                jpweb.com.ar
+              </a>
+            </span>
+            <a href="#top">Volver arriba ↑</a>
+          </span>
         </div>
       </div>
     </footer>

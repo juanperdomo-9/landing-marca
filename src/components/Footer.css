@@ -111,6 +111,12 @@
   color: var(--ink-3);
 }
 
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+}
+
 .footer__base a {
   color: var(--ink-2);
   text-decoration: none;
