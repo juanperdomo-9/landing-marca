@@ -1,6 +1,17 @@
 import { useRef, useState, type FormEvent } from "react";
-import { LuArrowRight, LuAtSign, LuCheck, LuCopy, LuGift, LuLoaderCircle, LuMail, LuRotateCcw } from "react-icons/lu";
-import { MARCA, OFERTA } from "../config";
+import {
+  LuArrowRight,
+  LuArrowUpRight,
+  LuAtSign,
+  LuCheck,
+  LuCopy,
+  LuGift,
+  LuLoaderCircle,
+  LuMail,
+  LuMessageCircle,
+  LuRotateCcw,
+} from "react-icons/lu";
+import { MARCA, OFERTA, whatsappLink, whatsappVisible } from "../config";
 import { enviarContacto, FORMULARIO_CONECTADO, type DatosContacto, type Rubro } from "../lib/contacto";
 import { retraso } from "../hooks/useReveal";
 import "./Contact.css";
@@ -99,9 +110,6 @@ export function Contact() {
     <section id="contacto" className="section contacto">
       <div className="container contacto__inner">
         <div className="contacto__copy" data-reveal="left">
-          <p className="eyebrow">
-            <b>07</b> Hablemos
-          </p>
           <h2>Mostranos tu negocio y te armamos una demo con tus datos</h2>
           <p className="contacto__lead">
             Te mostramos cómo quedaría tu página con tus canchas o servicios, tus horarios y tus precios. Sin
@@ -124,6 +132,21 @@ export function Contact() {
               <span className="contacto__canal-cuerpo">
                 <small>Instagram</small>
                 <Copiar texto={MARCA.instagram} etiqueta="el usuario de Instagram" />
+              </span>
+            </div>
+            <div className="contacto__canal">
+              <span className="contacto__canal-icono">
+                <LuMessageCircle size={18} aria-hidden="true" />
+              </span>
+              <span className="contacto__canal-cuerpo">
+                <small>WhatsApp</small>
+                <span className="copiar">
+                  <span className="copiar__texto">{whatsappVisible(MARCA.whatsapp)}</span>
+                  <a href={whatsappLink(MARCA.whatsapp)} target="_blank" rel="noopener noreferrer">
+                    <LuArrowUpRight size={15} aria-hidden="true" />
+                    <span>Escribir</span>
+                  </a>
+                </span>
               </span>
             </div>
           </div>

@@ -150,9 +150,6 @@ export function AssistantDemo() {
     <section id="asistente" className="section asistente">
       <div className="container asistente__inner">
         <div className="asistente__copy" data-reveal="left">
-          <p className="eyebrow">
-            <b>03</b> Asistente con IA
-          </p>
           <h2>Responde como vos, a cualquier hora</h2>
           <p className="asistente__lead">
             Contesta con lo que vos cargás: precios, horarios, cómo llegar, qué incluye el turno. Y cuando alguien

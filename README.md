@@ -19,8 +19,8 @@ npm run preview    # sirve dist/ para revisarla antes de publicar
 
 | Qué | Dónde |
 | --- | --- |
-| Nombre de la marca, bajada, email e Instagram | `src/config.ts` (objeto `MARCA`) |
-| Título de la pestaña y descripción para Google | `index.html` |
+| Nombre de la marca, bajada, email, Instagram y WhatsApp | `src/config.ts` (objeto `MARCA`) |
+| Título de la pestaña, descripción para Google y vista previa al compartir | `index.html` y `public/og.png` |
 | Estado de cada producto ("En lanzamiento", "Próximamente") | `src/config.ts` (lista `PRODUCTOS`) |
 | Dirección de la web de Hay Cancha | `src/config.ts` (`HAY_CANCHA.url`) |
 | Oferta del primer mes gratis | `src/config.ts` (`OFERTA`) |
@@ -41,10 +41,15 @@ La demo está en `src/components/hay-cancha/`. Los deportes, canchas, horarios, 
 
 ## Formulario de contacto
 
-Todavía no envía nada: simula el envío y muestra un aviso de "vista previa". Para conectarlo:
+Las consultas llegan a tu email a través de [Web3Forms](https://web3forms.com), que es gratis y no necesita base de datos ni servidor. Mientras no esté conectado, el formulario muestra un aviso de "vista previa" y no envía nada.
 
-1. En `src/lib/contacto.ts`, reemplazá el cuerpo de `enviarContacto` por un `fetch` a tu backend (hay un ejemplo en el comentario).
-2. Poné `FORMULARIO_CONECTADO = true` para que desaparezca el aviso.
+Para conectarlo:
+
+1. Entrá a https://web3forms.com, poné el email donde querés recibir las consultas y confirmá el correo que te mandan.
+2. Copiá la clave (*access key*) y pegala en `WEB3FORMS_CLAVE`, dentro de `src/lib/contacto.ts`.
+3. Subí el cambio. El aviso de vista previa desaparece solo.
+
+La clave es pública (está pensada para ir en la página), así que puede quedar en el código.
 
 ## Estructura
 

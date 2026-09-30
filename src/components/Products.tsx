@@ -82,9 +82,6 @@ export function Products() {
     <section id="productos" className="section productos">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow" data-reveal="left">
-            <b>01</b> Productos
-          </p>
           <h2 data-reveal="up" style={retraso(80)}>
             Una marca, un producto para cada rubro
           </h2>

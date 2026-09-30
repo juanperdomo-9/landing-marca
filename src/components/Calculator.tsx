@@ -64,9 +64,6 @@ export function Calculator() {
     <section id="calculadora" className="section calc">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow" data-reveal="left">
-            <b>04</b> Hacé la cuenta
-          </p>
           <h2 data-reveal="up" style={retraso(80)}>
             ¿Cuánta plata se te va en turnos vacíos?
           </h2>

@@ -29,14 +29,6 @@
   gap: clamp(40px, 6vw, 88px);
 }
 
-.asistente .eyebrow {
-  color: var(--band-ink-2);
-}
-
-.asistente .eyebrow b {
-  color: var(--band-accent);
-}
-
 .asistente__copy {
   display: grid;
   gap: 22px;

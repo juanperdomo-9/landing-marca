@@ -1,4 +1,4 @@
-import { ETIQUETA_ESTADO, MARCA, PRODUCTOS } from "../config";
+import { ETIQUETA_ESTADO, MARCA, PRODUCTOS, whatsappLink, whatsappVisible } from "../config";
 import { Logo } from "./Logo";
 import { BotonHayCancha } from "./hay-cancha/contexto";
 import { retraso } from "../hooks/useReveal";
@@ -61,6 +61,11 @@ export function Footer() {
             <ul>
               <li className="footer__dato">{MARCA.email}</li>
               <li className="footer__dato">{MARCA.instagram}</li>
+              <li>
+                <a href={whatsappLink(MARCA.whatsapp)} target="_blank" rel="noopener noreferrer">
+                  WhatsApp {whatsappVisible(MARCA.whatsapp)}
+                </a>
+              </li>
               <li>
                 <a href="#contacto">Pedí una demo</a>
               </li>

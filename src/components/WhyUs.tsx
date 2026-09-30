@@ -48,9 +48,6 @@ export function WhyUs() {
     <section id="por-que" className="section porque">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow" data-reveal="left">
-            <b>05</b> Por qué nosotros
-          </p>
           <h2 data-reveal="up" style={retraso(80)}>
             Pensado para cómo trabaja un negocio de acá
           </h2>

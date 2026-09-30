@@ -43,9 +43,6 @@ export function Faq() {
     <section id="preguntas" className="section faq">
       <div className="container faq__inner">
         <div className="faq__head" data-reveal="left">
-          <p className="eyebrow">
-            <b>06</b> Preguntas
-          </p>
           <h2>Lo que siempre nos preguntan</h2>
           <p>
             ¿Te quedó otra duda? <a href="#contacto">Escribinos</a> y te respondemos nosotros, no un bot.

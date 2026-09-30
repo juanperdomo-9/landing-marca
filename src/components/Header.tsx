@@ -71,7 +71,6 @@ export function Header() {
         <nav className="container" aria-label="Secciones">
           {LINKS.map((l, i) => (
             <a key={l.href} href={l.href} onClick={cerrar} style={{ animationDelay: `${i * 40}ms` }}>
-              <span className="mono">0{i + 1}</span>
               {l.texto}
             </a>
           ))}

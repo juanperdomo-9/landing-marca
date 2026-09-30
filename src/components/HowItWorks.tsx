@@ -61,9 +61,6 @@ export function HowItWorks() {
     <section id="como-funciona" className="section como">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow" data-reveal="left">
-            <b>02</b> Cómo funciona
-          </p>
           <h2 data-reveal="up" style={retraso(80)}>
             De cero a recibir reservas, sin configurar nada
           </h2>

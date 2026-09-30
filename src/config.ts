@@ -5,8 +5,21 @@ export const MARCA = {
   bajada: "Software para negocios que viven de los turnos",
   email: "[email@tumarca.com.ar]",
   instagram: "[@tumarca]",
+  /** Celular con característica, sin 0 ni 15. Se muestra como canal de contacto (el principal es el formulario). */
+  whatsapp: "2213523930",
   anio: 2026,
 };
+
+/** "2213523930" → "221 352-3930" */
+export function whatsappVisible(numero: string): string {
+  return numero.replace(/^(\d+)(\d{3})(\d{4})$/, "$1 $2-$3");
+}
+
+/** Link que abre el chat. Para celulares de Argentina el formato internacional es 54 9 + número. */
+export function whatsappLink(numero: string, mensaje?: string): string {
+  const texto = mensaje ? `?text=${encodeURIComponent(mensaje)}` : "";
+  return `https://wa.me/549${numero}${texto}`;
+}
 
 export const HAY_CANCHA = {
   /**
