@@ -71,6 +71,37 @@
   font-size: 0.9375rem;
 }
 
+.header__tema {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--line-strong);
+  background: var(--bg-elev);
+  color: var(--ink-2);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.header__tema:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.tema__icono {
+  display: grid;
+  animation: tema-icono 0.5s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+
+@keyframes tema-icono {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+  }
+}
+
 .header__toggle {
   display: none;
   place-items: center;

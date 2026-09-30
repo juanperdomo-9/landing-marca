@@ -8,7 +8,21 @@
       name="description"
       content="Software para negocios que viven de los turnos: reservas online, seña con Mercado Pago y un asistente con IA que responde por vos."
     />
-    <meta name="theme-color" content="#090d16" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f6f9" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#090d16" />
+    <script>
+      // Modo claro/oscuro elegido por el visitante (lo guarda src/lib/tema.ts). Va acá para que no parpadee.
+      try {
+        var tema = localStorage.getItem("tema");
+        if (tema === "light" || tema === "dark") {
+          document.documentElement.dataset.theme = tema;
+          var fondo = tema === "dark" ? "#090d16" : "#f5f6f9";
+          document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
+            m.setAttribute("content", fondo);
+          });
+        }
+      } catch (e) {}
+    </script>
 
     <!-- Vista previa al compartir el link (WhatsApp, Instagram, Facebook, LinkedIn).
          Si cambia el dominio, actualizar las direcciones de og:url y og:image. -->

@@ -294,6 +294,13 @@ svg {
   }
 }
 
+/* Cambio de modo claro/oscuro: el círculo lo anima BotonTema, acá se apaga el fundido por defecto */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

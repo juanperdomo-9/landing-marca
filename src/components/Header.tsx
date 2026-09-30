@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { LuArrowRight, LuMenu, LuX } from "react-icons/lu";
 import { Logo } from "./Logo";
+import { BotonTema } from "./BotonTema";
 import { BotonHayCancha } from "./hay-cancha/contexto";
 import "./Header.css";
 
@@ -54,6 +55,7 @@ export function Header() {
           <a className="btn btn--accent header__cta" href="#contacto">
             Pedí una demo <LuArrowRight aria-hidden="true" />
           </a>
+          <BotonTema className="header__tema" />
           <button
             type="button"
             className="header__toggle"

@@ -34,7 +34,6 @@ const ETIQUETA_TAB: Record<ProductoId, string> = {
 };
 
 interface Aviso {
-  lado: "arriba" | "abajo";
   desde: number;
   hasta?: number;
   Icono: ComponentType<{ size?: number }>;
@@ -44,16 +43,16 @@ interface Aviso {
 
 const AVISOS: Record<ProductoId, Aviso[]> = {
   cancha: [
-    { lado: "arriba", desde: 0, hasta: 2, Icono: LuUsers, titulo: "Quedan 3 canchas", detalle: "Fútbol 7 · hoy 21:00" },
-    { lado: "abajo", desde: 4, Icono: LuBadgeCheck, titulo: "Seña aprobada", detalle: "$15.000 · Mercado Pago" },
+    { desde: 0, hasta: 2, Icono: LuUsers, titulo: "Quedan 3 canchas", detalle: "Fútbol 7 · hoy 21:00" },
+    { desde: 4, Icono: LuBadgeCheck, titulo: "Seña aprobada", detalle: "$15.000 · Mercado Pago" },
   ],
   pelu: [
-    { lado: "arriba", desde: 3, Icono: LuBot, titulo: "Respondió el asistente", detalle: "Precio y horarios de Lucas" },
-    { lado: "abajo", desde: 7, Icono: LuCalendarCheck, titulo: "Turno confirmado", detalle: "Jue 18:00 · Corte y barba" },
+    { desde: 3, Icono: LuBot, titulo: "Respondió el asistente", detalle: "Precio y horarios de Lucas" },
+    { desde: 7, Icono: LuCalendarCheck, titulo: "Turno confirmado", detalle: "Jue 18:00 · Corte y barba" },
   ],
   resto: [
-    { lado: "arriba", desde: 4, Icono: LuClock, titulo: "Retira a las 21:15", detalle: "3 productos · $34.500" },
-    { lado: "abajo", desde: 5, Icono: LuBadgeCheck, titulo: "Pago aprobado", detalle: "Pedido #127 · Mercado Pago" },
+    { desde: 4, Icono: LuClock, titulo: "Retira a las 21:15", detalle: "3 productos · $34.500" },
+    { desde: 5, Icono: LuBadgeCheck, titulo: "Pago aprobado", detalle: "Pedido #127 · Mercado Pago" },
   ],
 };
 
@@ -70,6 +69,10 @@ export function HeroShowcase({ indice, ciclo, corriendo, reduce, onElegir }: Pro
   const pasoTimeline = useTimeline(TIEMPOS[id], corriendo, ciclo);
   const paso = reduce ? TIEMPOS[id].length : pasoTimeline;
   const Demo = DEMOS[id];
+  const ultimoAviso = AVISOS[id].reduce(
+    (ultimo, a, i) => (paso >= a.desde && (a.hasta === undefined || paso <= a.hasta) ? i : ultimo),
+    -1,
+  );
 
   return (
     <div className="showcase" data-producto={id}>
@@ -79,24 +82,23 @@ export function HeroShowcase({ indice, ciclo, corriendo, reduce, onElegir }: Pro
           <div key={id} className="showcase__screen">
             <Demo paso={paso} />
           </div>
-        </Phone>
 
-        <div key={id} className="showcase__avisos" aria-hidden="true">
-          {AVISOS[id].map((a) => {
-            const visible = paso >= a.desde && (a.hasta === undefined || paso <= a.hasta);
-            return (
-              <div key={a.titulo} className={`aviso aviso--${a.lado} ${visible ? "is-visible" : ""}`}>
+          {/* Notificaciones dentro de la pantalla: se ve solo la última que llegó */}
+          <div key={`avisos-${id}`} className="showcase__avisos" aria-hidden="true">
+            {AVISOS[id].map((a, i) => (
+              <div key={a.titulo} className={`aviso ${i === ultimoAviso ? "is-visible" : ""}`}>
                 <span className="aviso__icono">
-                  <a.Icono size={18} />
+                  <a.Icono size={16} />
                 </span>
                 <span className="aviso__texto">
                   <strong>{a.titulo}</strong>
                   <span>{a.detalle}</span>
                 </span>
+                <span className="aviso__hora">ahora</span>
               </div>
-            );
-          })}
-        </div>
+            ))}
+          </div>
+        </Phone>
       </div>
 
       <div className="showcase__tabs" role="group" aria-label="Elegí qué demo ver">

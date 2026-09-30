@@ -33,29 +33,37 @@
   }
 }
 
+/* Notificaciones dentro de la pantalla del celular, debajo de la barra de estado */
 .showcase__avisos {
   position: absolute;
-  inset: 0;
+  top: 4px;
+  left: 8px;
+  right: 8px;
+  z-index: 6;
   pointer-events: none;
 }
 
 .aviso {
   position: absolute;
-  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
   align-items: center;
   gap: 10px;
-  max-width: 236px;
-  padding: 10px 16px 10px 10px;
-  border-radius: 16px;
+  padding: 8px 10px;
+  border-radius: 18px;
   border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--bg-elev) 92%, transparent);
-  backdrop-filter: blur(8px);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   box-shadow: var(--shadow-md);
   opacity: 0;
-  transform: translateY(12px) scale(0.95);
+  transform: translateY(-130%) scale(0.96);
   transition:
-    opacity 0.45s ease,
-    transform 0.55s cubic-bezier(0.2, 0.9, 0.2, 1.15);
+    opacity 0.35s ease,
+    transform 0.5s cubic-bezier(0.2, 0.9, 0.2, 1.1);
 }
 
 .aviso.is-visible {
@@ -63,23 +71,12 @@
   transform: none;
 }
 
-.aviso--arriba {
-  top: 15%;
-  right: -7%;
-}
-
-.aviso--abajo {
-  bottom: 7%;
-  left: -6%;
-}
-
 .aviso__icono {
   display: grid;
   place-items: center;
-  flex: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 11px;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
   background: var(--p-soft);
   color: var(--p-text);
 }
@@ -91,11 +88,23 @@
 }
 
 .aviso__texto strong {
-  font-size: 0.875rem;
+  font-size: 12.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .aviso__texto span {
-  font-size: 0.78rem;
+  font-size: 11px;
+  color: var(--ink-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aviso__hora {
+  align-self: start;
+  font-size: 10px;
   color: var(--ink-3);
 }
 
@@ -170,31 +179,7 @@
   }
 }
 
-@media (max-width: 960px) {
-  .aviso--arriba {
-    right: max(0px, calc(50% - 260px));
-  }
-  .aviso--abajo {
-    left: max(0px, calc(50% - 260px));
-  }
-}
-
 @media (max-width: 520px) {
-  .aviso {
-    max-width: 200px;
-    padding: 8px 12px 8px 8px;
-  }
-  .aviso__icono {
-    width: 30px;
-    height: 30px;
-  }
-  .aviso--arriba {
-    right: -6px;
-    top: 12%;
-  }
-  .aviso--abajo {
-    left: -6px;
-  }
   .showcase__tab {
     padding: 0 11px;
     gap: 6px;
