@@ -60,8 +60,8 @@ src/
 ├── components/
 │   ├── Header, Hero, Marquee, Products, HowItWorks,
 │   │   AssistantDemo, Calculator, WhyUs, Faq, Contact, Footer
-│   ├── HeroShowcase.tsx    # celular con las tres demos que van rotando
-│   ├── demos/              # pantallas del celular (cancha, peluquería, restaurante)
+│   ├── HeroShowcase.tsx    # notebook con la pantalla partida (cliente y dueño), una escena por rubro
+│   ├── Cuaderno.tsx        # cuaderno con tachones de la portada, uno por rubro
 │   ├── hay-cancha/         # demo navegable de la página de un complejo
 │   └── visuals/            # agenda de canchas, agenda de peluquería, comanda
 ├── hooks/                  # animaciones: timeline, en pantalla, scroll, números
